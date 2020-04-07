@@ -1,0 +1,46 @@
+{
+
+    "name": ["What is the name of organization_name?"],
+
+    "domain": ["What is the domain of organization_name?", "In which domain does organization_name works?", "What does organization_name recommends?"],
+
+    "founded": ["When is organization_name founded?", "When organization_name started?", "When organization_name started its journey", "From how long organization_name serving?"],
+
+    "employee": ["How many employees are there in organization_name?"],
+
+    "developer": ["How many developers are there in organization_name?"],
+
+    "state": ["In how many states does organization_name deal?", "What are the number of states in which organization_name spread?"],
+
+    "countries": ["In how many countries does organization_name deal?", "What are the number of countries in which organization_name spread?"],
+
+    "reviews": ["How many reviews does organization_name have?"],
+
+    "fein": ["What is fein number of organization_name"],
+
+    "address": ["What is the address of organization_name?", "Where is organization_name located?"],
+
+    "sic": ["What is sic number of organization_name?"],
+
+    "revenue": ["What is the revenue of organization_name?", "How much is the revenue of organization_name?"],
+
+    "capitalization": ["What is the capitalization of organization_name?", "How much is the capitalization of organization_name?"],
+
+    "clients": ["How many clients does organization_name have?", "To how many clients does it helps?"],
+
+    "margin": ["How much is the margin of organization_name have?"],
+
+    "liability": ["What are the liabilities of organization_name?"],
+
+    "ceo": ["Who is the CEO of organization_name?", "Who is the Chief Executive Officer of organization_name?"],
+
+    "cfo": ["Who is the CFO of organization_name?", "Who is the Chief Financial Officer of organization_name?"],
+
+    "cmo": ["Who is the CMO of organization_name?", "Who is the Chief Marketing Officer of organization_name?"],
+
+    "founder": ["Who is the founder of organization_name?", "Who is the owner of organization_name?", "Who owned organization_name?"],
+
+    "co-founder": ["Who is the co-founder of organization_name?"],
+
+    "products-services": ["What are the services provided by organization_name?", "What does organization_name caters to clients?", "What is the aim of organization_name?"]
+}
