@@ -103,8 +103,8 @@ def main(DATA_FILENAME, model_name= 'bert_qa.joblib'):
     
     """
 
-    
-    final_predictions ={}
+    manager = multiprocessing.Manager()
+    final_predictions = manager.dict()
     start_time = time.time()
 
     preprocess_data.get_excel(os.path.join(DATA_RAW_DIR,DATA_FILENAME), os.path.join(DATA_PROCESSED_DIR, (DATA_FILENAME.split('.json')[0]+'.xlsx')))
