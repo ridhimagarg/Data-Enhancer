@@ -1,32 +1,44 @@
 {
 
-    "name": ["What is the name of organization_name?"],
+    "name": ["What is the name of organization_name?","With what name organization_name is identified?","How organization_name is recognised?"],
 
-    "domain": ["What is the domain of organization_name?", "In which domain does organization_name works?", "What does organization_name recommends?"],
+    "domain": ["What is the domain of organization_name?", "What is orgaization_name?", "In which domain does organization_name works?", 
+               "What does organization_name recommends?","what is the area organization_name deals in?",
+               "What is the business type of organization_name?","What industry organization_name comes into?",
+               "What is the industry type of organization_name?","What industry organization_name deals in?",
+               "Which industry does organization_name serve?","Which sector organization_name deals in?",
+               "What is organization_name known for?"],
 
-    "founded": ["When is organization_name founded?", "When organization_name started?", "When organization_name started its journey", "From how long organization_name serving?"],
+    "founded": ["When was organization_name founded?", "When was organization_name started?", "When was organization_name office opened?",
+                "When organization_name started its journey", "From how long organization_name serving?",
+                "What is the foundation year of organization_name","Since when organization_name is serving?",
+                "When did organization_name found a site for its headquaters?","What was the birth year of organization_name?",
+                "When did organization_name open its first office?","What is organization_name's origin year?", "Founded in?", "When was organization_name established?"],
 
-    "employee": ["How many employees are there in organization_name?"],
+    "employee": ["How many employees are there in organization_name?","What is the employee strength of organization_name?",
+                 "How many professionals are working in organization_name?","How many employees does organization_name include?",
+                 "What is the work force employed by organization_name?","How many employees work for organization_name?"],
 
     "developer": ["How many developers are there in organization_name?"],
 
-    "state": ["In how many states does organization_name deal?", "What are the number of states in which organization_name spread?"],
+    "state": ["In how many states does organization_name deal?", "What are the number of states in which organization_name spread?",
+              "In what locations organization_name operates?","Where organization_name is located?","In how many locations organization_name has its offices?",
+              "Where has organization_name opened its ofiices?","What are the different locations of organization_name?"],
 
-    "countries": ["In how many countries does organization_name deal?", "What are the number of countries in which organization_name spread?"],
+    "countries": ["In how many countries does organization_name deal?", "What are the number of countries in which organization_name spread?",
+                  "In what locations organization_name operates?","Where organization_name is located?","Where has organization_name opened its ofiices?",
+                  "In how many locations organization_name has its offices?","What are the different locations of organization_name?"],
+
 
     "reviews": ["How many reviews does organization_name have?"],
 
-    "fein": ["What is fein number of organization_name"],
-
-    "address": ["What is the address of organization_name?", "Where is organization_name located?"],
-
-    "sic": ["What is sic number of organization_name?"],
+    "address": ["What is the address of organization_name?", "Where is organization_name located?","Where is organization_name headquartered?"],
 
     "revenue": ["What is the revenue of organization_name?", "How much is the revenue of organization_name?"],
 
     "capitalization": ["What is the capitalization of organization_name?", "How much is the capitalization of organization_name?"],
 
-    "clients": ["How many clients does organization_name have?", "To how many clients does it helps?"],
+    "clients": ["How many clients does organization_name have?", "In how many countries does organization_have has its client?"],
 
     "margin": ["How much is the margin of organization_name have?"],
 
@@ -34,13 +46,19 @@
 
     "ceo": ["Who is the CEO of organization_name?", "Who is the Chief Executive Officer of organization_name?"],
 
-    "cfo": ["Who is the CFO of organization_name?", "Who is the Chief Financial Officer of organization_name?"],
+    "cfo": ["Who is the CFO of organization_name?", "Who is the Chief Financial Officer of organization_name?",
+            "Who handles Financial aspects of organization_name?"],
 
     "cmo": ["Who is the CMO of organization_name?", "Who is the Chief Marketing Officer of organization_name?"],
 
-    "founder": ["Who is the founder of organization_name?", "Who is the owner of organization_name?", "Who owned organization_name?"],
+    "coo": ["Who is the COO of organization_name?"],
+
+    "founder": ["Who is the founder of organization_name?", "Who is the owner of organization_name?", 
+                "Who owned organization_name?","Who are the founding fathers of organization_name?",
+                "Who initiated organization_name?","Who opened organization_name?","Who started organization_name?"],
 
     "co-founder": ["Who is the co-founder of organization_name?"],
 
-    "products-services": ["What are the services provided by organization_name?", "What does organization_name caters to clients?", "What is the aim of organization_name?"]
+    "products-services": ["What are the services provided by organization_name?", "What does organization_name caters to clients?", 
+                          "What is the aim of organization_name?","What are products of organization_name?", "What does orgainzation_name owns?"]
 }

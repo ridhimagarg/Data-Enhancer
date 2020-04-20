@@ -1,44 +1,74 @@
 {
     "name": [
-        "What is the name of Dabur?"
+        "What is the name of Dabur?",
+        "With what name Dabur is identified?",
+        "How Dabur is recognised?"
     ],
     "domain": [
         "What is the domain of Dabur?",
+        "What is orgaization_name?",
         "In which domain does Dabur works?",
-        "What does Dabur recommends?"
+        "What does Dabur recommends?",
+        "what is the area Dabur deals in?",
+        "What is the business type of Dabur?",
+        "What industry Dabur comes into?",
+        "What is the industry type of Dabur?",
+        "What industry Dabur deals in?",
+        "Which industry does Dabur serve?",
+        "Which sector Dabur deals in?",
+        "What is Dabur known for?"
     ],
     "founded": [
-        "When is Dabur founded?",
-        "When Dabur started?",
+        "When was Dabur founded?",
+        "When was Dabur started?",
+        "When was Dabur office opened?",
         "When Dabur started its journey",
-        "From how long Dabur serving?"
+        "From how long Dabur serving?",
+        "What is the foundation year of Dabur",
+        "Since when Dabur is serving?",
+        "When did Dabur found a site for its headquaters?",
+        "What was the birth year of Dabur?",
+        "When did Dabur open its first office?",
+        "What is Dabur's origin year?",
+        "Founded in?",
+        "When was Dabur established?"
     ],
     "employee": [
-        "How many employees are there in Dabur?"
+        "How many employees are there in Dabur?",
+        "What is the employee strength of Dabur?",
+        "How many professionals are working in Dabur?",
+        "How many employees does Dabur include?",
+        "What is the work force employed by Dabur?",
+        "How many employees work for Dabur?"
     ],
     "developer": [
         "How many developers are there in Dabur?"
     ],
     "state": [
         "In how many states does Dabur deal?",
-        "What are the number of states in which Dabur spread?"
+        "What are the number of states in which Dabur spread?",
+        "In what locations Dabur operates?",
+        "Where Dabur is located?",
+        "In how many locations Dabur has its offices?",
+        "Where has Dabur opened its ofiices?",
+        "What are the different locations of Dabur?"
     ],
     "countries": [
         "In how many countries does Dabur deal?",
-        "What are the number of countries in which Dabur spread?"
+        "What are the number of countries in which Dabur spread?",
+        "In what locations Dabur operates?",
+        "Where Dabur is located?",
+        "Where has Dabur opened its ofiices?",
+        "In how many locations Dabur has its offices?",
+        "What are the different locations of Dabur?"
     ],
     "reviews": [
         "How many reviews does Dabur have?"
     ],
-    "fein": [
-        "What is fein number of Dabur"
-    ],
     "address": [
         "What is the address of Dabur?",
-        "Where is Dabur located?"
-    ],
-    "sic": [
-        "What is sic number of Dabur?"
+        "Where is Dabur located?",
+        "Where is Dabur headquartered?"
     ],
     "revenue": [
         "What is the revenue of Dabur?",
@@ -49,7 +79,8 @@
         "How much is the capitalization of Dabur?"
     ],
     "clients": [
-        "How many clients does Dabur have?"
+        "How many clients does Dabur have?",
+        "In how many countries does organization_have has its client?"
     ],
     "margin": [
         "How much is the margin of Dabur have?"
@@ -63,16 +94,24 @@
     ],
     "cfo": [
         "Who is the CFO of Dabur?",
-        "Who is the Chief Financial Officer of Dabur?"
+        "Who is the Chief Financial Officer of Dabur?",
+        "Who handles Financial aspects of Dabur?"
     ],
     "cmo": [
         "Who is the CMO of Dabur?",
         "Who is the Chief Marketing Officer of Dabur?"
     ],
+    "coo": [
+        "Who is the COO of Dabur?"
+    ],
     "founder": [
         "Who is the founder of Dabur?",
         "Who is the owner of Dabur?",
-        "Who owned Dabur?"
+        "Who owned Dabur?",
+        "Who are the founding fathers of Dabur?",
+        "Who initiated Dabur?",
+        "Who opened Dabur?",
+        "Who started Dabur?"
     ],
     "co-founder": [
         "Who is the co-founder of Dabur?"
@@ -80,6 +119,8 @@
     "products-services": [
         "What are the services provided by Dabur?",
         "What does Dabur caters to clients?",
-        "What is the aim of Dabur?"
+        "What is the aim of Dabur?",
+        "What are products of Dabur?",
+        "What does orgainzation_name owns?"
     ]
 }

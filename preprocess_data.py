@@ -11,8 +11,6 @@ nlp = spacy.load(model)
 nlp.max_length = 20000000 
 merge_nps = nlp.create_pipe("merge_noun_chunks")
 nlp.add_pipe(merge_nps)
-# with open("stopwords.txt") as fp:
-#     stop_words = fp.readlines()
 
 state = {'ALABAMA': 'AL', 'ALASKA': 'AK', 'ARIZONA': 'AZ', 'ARKANSAS': 'AR', 'CALIFORNIA': 'CA', 'COLORADO': 'CO', 
                     'CONNECTICUT': 'CT', 'DELAWARE': 'DE', 'FLORIDA': 'FL', 'GEORGIA': 'GA', 'HAWAII': 'HI', 'IDAHO': 'ID', 
@@ -41,10 +39,9 @@ def read_json_file(FilePath: str) -> str :
     """
     Read .json file and returns text data
     """
-    # key_name = input("Enter the key that contains text data: ")
-    with open(str(FilePath)) as fp:
+    with open(str(FilePath),encoding = 'utf8') as fp:
         data = json.load(fp)
-        # text = data['text']
+
     return data
 
 def read_excel_file(FilePath: str):
@@ -110,35 +107,27 @@ def clean_merged_text(TextData: str) -> str:
 
 ####################### Refines text by removing unwanted symbols and unwanted characters ##############
 def refine_text(TextData: str) -> str:
-    text = TextData
-    txt = TextData
-    text = txt.replace('$',' $')
+    text = TextData.encode('ascii',errors = "ignore")
+    text = TextData.replace('$',' $')
     symbols = '!#?:^*()_+=~|'
     for symbol in symbols:
-        if symbol in text:
-            text = text.replace(symbol, '')
-    # pattern = re.compile(r'\\x[a-zA-Z0-9]?[0-9a-zA-Z]\\?')
-    # text = re.sub(pattern,' ',text)
+        text = text.replace(symbol, '')
+    
     text = text.replace(";","\n")
     text = re.sub(r'\\r\\n',"\n",text)
     patterns = [r'x[a-z0-9]{7}-[0-9]{4}',r'\\x[a-z0-9][a-z0-9]']
     for r in patterns:
         text = re.sub(r," ",text)
-    # text = re.sub('[^A-Za-z0-9]+', ' ',text)
-    text = text.replace(r'\r\n','\n')
-    text = text.replace(r'\n','\n')
-    text = text.replace('\\','')
-    text = text.replace(' $ ',' $')
-    # for word in ['b"',"b'"]:
-    #     # print(word)
-    #     text = text.replace(word,"")
+    
+    CharactersToReplace = [(r'\r\n','\n'),(r'\n','\n'),('\\',''),(' $ ',' $')]
+    for old,new in CharactersToReplace:
+        text = text.replace(old,new)
+   
     text = re.sub(r'\s+',' ',text)
     text = text.replace(' , ',', ')
     text = text.strip()
-    # if text[-1] == " ":
-    #     text = text.replace(text[-1],"")
+    
     if text[-1] in [r"'",r'"']:
-        # print("into if loop")
         text = text.replace(text[-1],".")
     text = re.sub(r'\.+', ".", text)
     text = text.replace(' . ','.')
@@ -151,7 +140,7 @@ def pysbd_sent_segmenter(TextData: str) -> list:
     sentences = []
     for sent in segmented_sentences:
         tokenized_words = word_tokenize(sent)
-        if len(tokenized_words)>4:
+        if len(tokenized_words)>3:
             sentences.append(tokenized_words)
     # print(len(sentences))
     # print(len(segmented_sentences))
@@ -164,11 +153,7 @@ def pysbd_sent_segmenter(TextData: str) -> list:
 
 ############# sentence_selection: select only those sentences that satisfy certain conditions ##########
 def sentence_selection(ListOfSentences: list) -> list:
-    correct_sentences = []
-    model = "en_core_web_sm"
-    nlp = spacy.load(model)
-    merge_nps = nlp.create_pipe("merge_noun_chunks")
-    nlp.add_pipe(merge_nps)    
+    correct_sentences = []    
     for line in ListOfSentences:
         doc = nlp(line)
         pos_tags_list = [(token,token.pos_,token.dep_) for token in doc]
@@ -190,13 +175,13 @@ def sentence_selection(ListOfSentences: list) -> list:
         # check for Subject
             sub_flag = False
             for word,pos,dep in pos_tags_list:
-                if dep in ["nsubj"]:
+                if dep in ["nsubj","nsubjpass"]:
                     sub_flag = True
             obj_flag = False
             for word,pos,dep in pos_tags_list:
                 if dep in ["dobj","pobj"]:
                     obj_flag = True
-            if sub_flag == True and obj_flag == True:
+            if sub_flag == True or obj_flag == True:
                 sentence_correct = True
         if sentence_correct == True:
             correct_sentences.append(line)
@@ -204,32 +189,32 @@ def sentence_selection(ListOfSentences: list) -> list:
 
 def get_processed_data(TextData: str) -> list:
     refined_text = refine_text(TextData)
-    segmented_sentences = pysbd_sent_segmenter(refine_text)
+    segmented_sentences = pysbd_sent_segmenter(refined_text)
     selected_sentences = sentence_selection(segmented_sentences)
     return selected_sentences
 
 ############# As per Ridhima's Requirement below function takes excel data and process it ##########
 
-def get_json(MainJsonFilePath: str, ExpectedJsonFilePath: str) -> dict:
-    json_ = read_json_file(MainJsonFilePath)
-    print(json_)
+def get_excel(InputJsonPath: str, ExpectedJsonFilePath: str) -> dict: 
+    json_ = read_json_file(InputJsonPath)
     title = json_['string']
     text = json_['text']
     ListOfSentences = get_processed_data(text)
+    print(title)
     dataframe = pd.DataFrame(columns=['title', 'paragraphs'])
-    dataframe.append({'title':title, 'paragraphs': ListOfSentences})
-    dataframe.to_excel(ExpectedJsonFilePath, sheet_name='Sheet1')
+    dataframe = dataframe.append({'title':title, 'paragraphs': ListOfSentences}, ignore_index=True)
+    print(dataframe)
+    dataframe.to_excel(ExpectedJsonFilePath, sheet_name='Sheet1', index=False)
     # data = {}
     # data['title'] = title
     # data['sentences'] = ListOfSentences
     # create_json(data,ExpectedJsonFilePath)
 
-
-get_json('./data/cleaned_data/test.json', 'test.json')    
-
-
 if __name__ == '__main__':
-    pass
+    get_excel('./data/raw/72.json','test2.xlsx')
+    # text = "Infosys has 8279292 employees"
+    # print(pysbd_sent_segmenter(refine_text(text)))
+
     # # with open("sample_data/SearchResultsCorpus.txt") as fp:
     # #     lines_list = fp.readlines()
     # # for line in lines_list:

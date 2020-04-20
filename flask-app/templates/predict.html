@@ -1,0 +1,62 @@
+{% extends "bootstrap/base.html" %}
+{% block content%}
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+
+<style>
+    body {
+        background: #333333;
+    }
+</style>
+
+<body>
+<div class="container text-center" style="color: #ffffff;">
+    <h2 class="lead text-center">Retrieved Information is -:</h2>
+
+    <br>
+    <br>
+    <p>
+        {{text}}
+    </p>
+    <!-- For loop logic of jinja template -->
+    <div class="table-responsive">
+        <table class="table table-dark" width="300%">
+            <thead>
+                <tr>
+                    <th scope="col">Key</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key, value in prediction.items() %}
+
+                <tr>
+                    <td scope="row">{{key.upper()}}</td>
+                    <td>{{value}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+
+        </table>
+    </div>
+    <br>
+
+
+
+</div>
+</body>
+
+{% endblock %}

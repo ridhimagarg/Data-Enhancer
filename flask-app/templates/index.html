@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+	<!-- <script src="/static/upload.js"></script> -->
 
     <!-- bootstrap cdn -->
     <link 
@@ -18,10 +20,37 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     
-    <title>SpectralTech</title>
+    <!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <title>Data Enhancer(Business Information)</title>
     
 
 </head>
+
+<script type="text/javascript">
+    function loading(){
+        
+        document.getElementById("loading").style.display = "block";
+
+    }
+</script>
+
+<style type="text/css">
+#loading {
+    /* width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    text-emphasis-color: #F4D03F ; */
+    display: none;
+    }
+ </style> 
+
+
+  
+
 
 
 <body class="bg-dark">
@@ -56,11 +85,12 @@
 
     <main role="main" style="margin-top: 100px">
         
-        
+     
   
 <div class="container text-white text-center" style="padding-top: 15px; padding-bottom: 15px">
     <h1 class="cover-heading">Business Information Retrieval</h1>
 </div>
+
 
 <div class="bs-example col-md-6 mx-auto">
     <!-- <ul class="nav nav-tabs justify-content-center">
@@ -78,15 +108,26 @@
             <h4 class="mt-3 cover-heading text-center text-white">Upload Your File</h4>
             
             <!-- Upload form -->
-            <form class="form-inline mt-4 mx-auto" method="post" action="/" enctype="multipart/form-data">
+            <form id="yourform" class="form-inline mt-4 mx-auto" method="post" action="/" enctype="multipart/form-data">
 
                 <div class="form-group mx-auto">
-                    <input type="file" class="text-white font-weight-bold" id="exampleInputFile" name="inputFile">
-                    <button type="submit" class="btn btn-primary font-weight-bold mx-auto">Upload</button>
+                    <input type="file" class="text-white font-weight-bold" id="exampleInputFile" name="file">
+                    <button type="submit" class="btn btn-primary font-weight-bold mx-auto" onclick="loading();">Upload</button>
                     
                 </div>
                 
             </form>
+
+
+            <!-- {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %} -->
 
             
 
@@ -97,7 +138,7 @@
                         <h5 class="text-center">Instructions</h5>
                         <ul>
                         <li>Select the file by clicking on the <b>Choose file</b> option.</li>
-                        <li>Make sure you select the file with <b>.pdf</b> extension.</li>
+                        <li>Make sure you select the file with <b>.json</b> extension.</li>
                         <li>Finally upload your file by clicking on <b>Upload</b> button.</li>
                         </ul>
 
@@ -105,7 +146,10 @@
                 </div>
 
             </div>
-            
+
+            <div class="row mt-5">
+            <div class="container text-white" id="loading"><h4>File Sucessfully given to model!! Please wait results will be fetched in 2-3 mins...</h4></div>  
+        </div>
         </div>
 
     </div>

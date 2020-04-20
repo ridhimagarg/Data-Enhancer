@@ -1,0 +1,86 @@
+{
+    "name": [
+        "What is the name of HomeAdvisor?"
+    ],
+    "domain": [
+        "What is the domain of HomeAdvisor?",
+        "In which domain does HomeAdvisor works?",
+        "What does HomeAdvisor recommends?"
+    ],
+    "founded": [
+        "When is HomeAdvisor founded?",
+        "When HomeAdvisor started?",
+        "When HomeAdvisor started its journey",
+        "From how long HomeAdvisor serving?"
+    ],
+    "employee": [
+        "How many employees are there in HomeAdvisor?"
+    ],
+    "developer": [
+        "How many developers are there in HomeAdvisor?"
+    ],
+    "state": [
+        "In how many states does HomeAdvisor deal?",
+        "What are the number of states in which HomeAdvisor spread?"
+    ],
+    "countries": [
+        "In how many countries does HomeAdvisor deal?",
+        "What are the number of countries in which HomeAdvisor spread?"
+    ],
+    "reviews": [
+        "How many reviews does HomeAdvisor have?"
+    ],
+    "fein": [
+        "What is fein number of HomeAdvisor"
+    ],
+    "address": [
+        "What is the address of HomeAdvisor?",
+        "Where is HomeAdvisor located?"
+    ],
+    "sic": [
+        "What is sic number of HomeAdvisor?"
+    ],
+    "revenue": [
+        "What is the revenue of HomeAdvisor?",
+        "How much is the revenue of HomeAdvisor?"
+    ],
+    "capitalization": [
+        "What is the capitalization of HomeAdvisor?",
+        "How much is the capitalization of HomeAdvisor?"
+    ],
+    "clients": [
+        "How many clients does HomeAdvisor have?",
+        "To how many clients does it helps?"
+    ],
+    "margin": [
+        "How much is the margin of HomeAdvisor have?"
+    ],
+    "liability": [
+        "What are the liabilities of HomeAdvisor?"
+    ],
+    "ceo": [
+        "Who is the CEO of HomeAdvisor?",
+        "Who is the Chief Executive Officer of HomeAdvisor?"
+    ],
+    "cfo": [
+        "Who is the CFO of HomeAdvisor?",
+        "Who is the Chief Financial Officer of HomeAdvisor?"
+    ],
+    "cmo": [
+        "Who is the CMO of HomeAdvisor?",
+        "Who is the Chief Marketing Officer of HomeAdvisor?"
+    ],
+    "founder": [
+        "Who is the founder of HomeAdvisor?",
+        "Who is the owner of HomeAdvisor?",
+        "Who owned HomeAdvisor?"
+    ],
+    "co-founder": [
+        "Who is the co-founder of HomeAdvisor?"
+    ],
+    "products-services": [
+        "What are the services provided by HomeAdvisor?",
+        "What does HomeAdvisor caters to clients?",
+        "What is the aim of HomeAdvisor?"
+    ]
+}

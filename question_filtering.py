@@ -14,13 +14,13 @@ import tensorflow_hub as hub
 import numpy as np
 import pandas as pd
 import re, os, random, ast
-
+from utils.basic_utils import read_json
 
 from utils import download, basic_utils
 
 
 MODEL_DIR = 'models/tfhub_model'
-DATA_FILENAME = './data/data.xlsx'
+# DATA_FILENAME = './data/data.xlsx'
 
 
 def USE_embeddings(features: list):
@@ -57,7 +57,7 @@ def USE_embeddings(features: list):
 
 
 
-def calculating_similarity(QUESTIONS_DIC, data_filename = DATA_FILENAME):
+def calculating_similarity(QUESTIONS_DIC, data_filename ):
 
     """
     Parameters
@@ -82,7 +82,7 @@ def calculating_similarity(QUESTIONS_DIC, data_filename = DATA_FILENAME):
     questions = []
 
     ## Reading data and questions
-    df = pd.read_excel(DATA_FILENAME, 'Sheet1')
+    df = pd.read_excel(data_filename, 'Sheet1')
     df['paragraphs'] = df['paragraphs'].apply(lambda x: ast.literal_eval(x))
 
     questions_dic = QUESTIONS_DIC
@@ -122,9 +122,11 @@ def discard_question(question_data_array):
 
     ques_para_id = []
 
+    print(question_data_array)
+
     for ques_id , x in enumerate(question_data_array):
 
-        para_id = np.where(x>= 0.5)[0]
+        para_id = np.where(x>= 0.4)[0]
 
         if para_id.size != 0:
             ques_para_id.append((ques_id, list(para_id)))
@@ -133,7 +135,7 @@ def discard_question(question_data_array):
 
     return ques_para_id
 
-def filtered_questions(QUESTIONS_DIC):
+def filtered_questions(QUESTIONS_DIC, data_filename):
 
     """
     Main function which return the questions and paragraph id
@@ -149,10 +151,19 @@ def filtered_questions(QUESTIONS_DIC):
 
     """
 
-    question_data_array = calculating_similarity(QUESTIONS_DIC)
+    question_data_array = calculating_similarity(QUESTIONS_DIC, data_filename)
     filtered_questions = discard_question(question_data_array)
 
     return filtered_questions
+
+
+if __name__ == "__main__":
+
+
+    question_dic = read_json('./data/caching/Dabur.json')
+    question_data_array = calculating_similarity(question_dic, './data/processed/sample_3.xlsx')
+    filtered_questions = discard_question(question_data_array)
+
 
 
 

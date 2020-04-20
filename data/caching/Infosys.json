@@ -1,44 +1,74 @@
 {
     "name": [
-        "What is the name of Infosys?"
+        "What is the name of Infosys?",
+        "With what name Infosys is identified?",
+        "How Infosys is recognised?"
     ],
     "domain": [
         "What is the domain of Infosys?",
+        "What is orgaization_name?",
         "In which domain does Infosys works?",
-        "What does Infosys recommends?"
+        "What does Infosys recommends?",
+        "what is the area Infosys deals in?",
+        "What is the business type of Infosys?",
+        "What industry Infosys comes into?",
+        "What is the industry type of Infosys?",
+        "What industry Infosys deals in?",
+        "Which industry does Infosys serve?",
+        "Which sector Infosys deals in?",
+        "What is Infosys known for?"
     ],
     "founded": [
-        "When is Infosys founded?",
-        "When Infosys started?",
+        "When was Infosys founded?",
+        "When was Infosys started?",
+        "When was Infosys office opened?",
         "When Infosys started its journey",
-        "From how long Infosys serving?"
+        "From how long Infosys serving?",
+        "What is the foundation year of Infosys",
+        "Since when Infosys is serving?",
+        "When did Infosys found a site for its headquaters?",
+        "What was the birth year of Infosys?",
+        "When did Infosys open its first office?",
+        "What is Infosys's origin year?",
+        "Founded in?",
+        "When was Infosys established?"
     ],
     "employee": [
-        "How many employees are there in Infosys?"
+        "How many employees are there in Infosys?",
+        "What is the employee strength of Infosys?",
+        "How many professionals are working in Infosys?",
+        "How many employees does Infosys include?",
+        "What is the work force employed by Infosys?",
+        "How many employees work for Infosys?"
     ],
     "developer": [
         "How many developers are there in Infosys?"
     ],
     "state": [
         "In how many states does Infosys deal?",
-        "What are the number of states in which Infosys spread?"
+        "What are the number of states in which Infosys spread?",
+        "In what locations Infosys operates?",
+        "Where Infosys is located?",
+        "In how many locations Infosys has its offices?",
+        "Where has Infosys opened its ofiices?",
+        "What are the different locations of Infosys?"
     ],
     "countries": [
         "In how many countries does Infosys deal?",
-        "What are the number of countries in which Infosys spread?"
+        "What are the number of countries in which Infosys spread?",
+        "In what locations Infosys operates?",
+        "Where Infosys is located?",
+        "Where has Infosys opened its ofiices?",
+        "In how many locations Infosys has its offices?",
+        "What are the different locations of Infosys?"
     ],
     "reviews": [
         "How many reviews does Infosys have?"
     ],
-    "fein": [
-        "What is fein number of Infosys"
-    ],
     "address": [
         "What is the address of Infosys?",
-        "Where is Infosys located?"
-    ],
-    "sic": [
-        "What is sic number of Infosys?"
+        "Where is Infosys located?",
+        "Where is Infosys headquartered?"
     ],
     "revenue": [
         "What is the revenue of Infosys?",
@@ -50,7 +80,7 @@
     ],
     "clients": [
         "How many clients does Infosys have?",
-        "To how many clients does it helps?"
+        "In how many countries does organization_have has its client?"
     ],
     "margin": [
         "How much is the margin of Infosys have?"
@@ -64,16 +94,24 @@
     ],
     "cfo": [
         "Who is the CFO of Infosys?",
-        "Who is the Chief Financial Officer of Infosys?"
+        "Who is the Chief Financial Officer of Infosys?",
+        "Who handles Financial aspects of Infosys?"
     ],
     "cmo": [
         "Who is the CMO of Infosys?",
         "Who is the Chief Marketing Officer of Infosys?"
     ],
+    "coo": [
+        "Who is the COO of Infosys?"
+    ],
     "founder": [
         "Who is the founder of Infosys?",
         "Who is the owner of Infosys?",
-        "Who owned Infosys?"
+        "Who owned Infosys?",
+        "Who are the founding fathers of Infosys?",
+        "Who initiated Infosys?",
+        "Who opened Infosys?",
+        "Who started Infosys?"
     ],
     "co-founder": [
         "Who is the co-founder of Infosys?"
@@ -81,6 +119,8 @@
     "products-services": [
         "What are the services provided by Infosys?",
         "What does Infosys caters to clients?",
-        "What is the aim of Infosys?"
+        "What is the aim of Infosys?",
+        "What are products of Infosys?",
+        "What does orgainzation_name owns?"
     ]
 }
