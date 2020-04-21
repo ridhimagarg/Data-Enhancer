@@ -20,7 +20,7 @@ from cdqa.retriever import BM25Retriever
 ## Importing base packages
 import pandas as pd
 from ast import literal_eval
-import ast, os, time, multiprocessing
+import ast, os, time, multiprocessing, json
 
 ## Our defined packages
 import question_filtering 
@@ -127,7 +127,7 @@ def main(DATA_FILENAME, model_name= 'bert_qa.joblib'):
     ques_para_id = question_filtering.filtered_questions(ques_dic, os.path.join(DATA_PROCESSED_DIR, (DATA_FILENAME.split(".json")[0]+'.xlsx')))
     
     ## Fitting the model pipeline
-    cdqa_pipeline = QAPipeline(reader=MODEL_DIR+str(model_name))
+    cdqa_pipeline = QAPipeline(reader=MODEL_DIR+str(model_name), max_df=1, min_df=1)
     retriever = cdqa_pipeline.fit_retriever(df=df)
 
 
@@ -155,6 +155,9 @@ def main(DATA_FILENAME, model_name= 'bert_qa.joblib'):
 
 
     print(final_predictions)
+    
+    final_predictions = final_predictions._getvalue()
+
     save_json(os.path.join(RESPONSE_DIR, DATA_FILENAME), final_predictions)
 
     print('That took {} seconds'.format(time.time() - start_time))
