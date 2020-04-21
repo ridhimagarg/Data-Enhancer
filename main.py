@@ -162,7 +162,7 @@ def main(DATA_FILENAME, model_name= 'bert_qa.joblib'):
     return final_predictions
 
 
-def multiprocess_ques_predict(q_p_id, ques_flat_list, cdqa_pipeline, final_predictions):
+def multiprocess_ques_predict(q_p_id, ques_flat_list, cdqa_pipeline, predictions):
 
     # final_predictions = {}
 
@@ -179,12 +179,12 @@ def multiprocess_ques_predict(q_p_id, ques_flat_list, cdqa_pipeline, final_predi
     print("Paragraphs id by TFhub:",q_p_id[1])
     if prediction[2] in q_p_id[1]:
         print("Prediction arry by cdqa:", prediction)
-        if key not in final_predictions.keys():
-            final_predictions[key] = [prediction[0]]
+        if key not in predictions.keys():
+            predictions[key] = [prediction[0]]
         else:
-            final_predictions[key].append(prediction[0])
+            predictions[key].append(prediction[0])
 
-    return final_predictions
+    # return final_predictions
 
 
 if __name__ == '__main__':
