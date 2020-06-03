@@ -6,7 +6,7 @@
 #version         :2.0
 #usage           :python main.py
 #notes           :
-#python_version  :3.6.4
+#python_version  :3.7.5
 
 
 ## ----------------------Importing all libraries--------------------------##
@@ -26,6 +26,7 @@ import ast, os, time, multiprocessing, json
 import question_filtering 
 from utils.basic_utils import *
 import preprocess_data
+import data_scraper
 
 ##------------------------ Variables ---------------------------##
 
@@ -85,14 +86,14 @@ def questions_acc_business(organization_name, ques_dic):
 
 ##--------------------------------------------- Main function -----------------------------------##
   
-def main(DATA_FILENAME, model_name= 'bert_qa.joblib'):
+def main(model_name= 'bert_qa.joblib'):
 
     """
     
     Parameters
     ----------
 
-    DATA_FILENAME(Otional): File(EXCEL SHEET) consist title and paragrahs for each document of the business
+    DATA_FILENAME(Otional): File(EXCEL SHEET) consist title and paragrahs for each document of the business/Changed it to fetched from the raw directory last file and create new file
     
     modek_name(Optional): BY default its takes BERT model, if wants to change pls specifiy
 
@@ -106,10 +107,14 @@ def main(DATA_FILENAME, model_name= 'bert_qa.joblib'):
     manager = multiprocessing.Manager()
     final_predictions = manager.dict()
     start_time = time.time()
+    
+    list_file_num = [int(file.split('_')[1].split('.')[0]) for file in os.listdir(DATA_RAW_DIR) if file.endswith('.json')]
+    filename = 'sample_'+str(max(list_file_num)+1)+'.json'
+    
+    data_scraper.get_all_pages_data(num_subpages = 3, filename=filename, company_name= 'Goldman Sachs' , main_url='https://www.goldmansachs.com/')
+    preprocess_data.get_excel(os.path.join(DATA_RAW_DIR,filename), os.path.join(DATA_PROCESSED_DIR, (filename.split('.json')[0]+'.xlsx')))
 
-    preprocess_data.get_excel(os.path.join(DATA_RAW_DIR,DATA_FILENAME), os.path.join(DATA_PROCESSED_DIR, (DATA_FILENAME.split('.json')[0]+'.xlsx')))
-
-    df = pd.read_excel(os.path.join(DATA_PROCESSED_DIR, (DATA_FILENAME.split(".json")[0]+'.xlsx')), 'Sheet1')
+    df = pd.read_excel(os.path.join(DATA_PROCESSED_DIR, (filename.split(".json")[0]+'.xlsx')), 'Sheet1')
     df['paragraphs'] = df['paragraphs'].apply(lambda x: ast.literal_eval(x))
 
     # print(df)
@@ -124,7 +129,7 @@ def main(DATA_FILENAME, model_name= 'bert_qa.joblib'):
     ques_dic = read_json(os.path.join(str(CACHING_DIR),str(organization_name)+".json"))
     ques_flat_list = [(key, item) for key, sublist in ques_dic.items() for item in sublist]
     ## Filtering out the questions for that business
-    ques_para_id = question_filtering.filtered_questions(ques_dic, os.path.join(DATA_PROCESSED_DIR, (DATA_FILENAME.split(".json")[0]+'.xlsx')))
+    ques_para_id = question_filtering.filtered_questions(ques_dic, os.path.join(DATA_PROCESSED_DIR, (filename.split(".json")[0]+'.xlsx')))
     
     ## Fitting the model pipeline
     cdqa_pipeline = QAPipeline(reader=MODEL_DIR+str(model_name), max_df=1, min_df=1)
@@ -158,7 +163,7 @@ def main(DATA_FILENAME, model_name= 'bert_qa.joblib'):
     
     final_predictions = final_predictions._getvalue()
 
-    save_json(os.path.join(RESPONSE_DIR, DATA_FILENAME), final_predictions)
+    save_json(os.path.join(RESPONSE_DIR, filename), final_predictions)
 
     print('That took {} seconds'.format(time.time() - start_time))
 
@@ -177,22 +182,23 @@ def multiprocess_ques_predict(q_p_id, ques_flat_list, cdqa_pipeline, predictions
     query = str(ques)
     prediction = cdqa_pipeline.predict(query)
     prediction = (prediction)
-    print("Paragraph id by cdqa:", prediction[2])
+    print("Paragraph id by cdqa:", prediction)
     # print(prediction[0][2])
     print("Paragraphs id by TFhub:",q_p_id[1])
     if prediction[2] in q_p_id[1]:
         print("Prediction arry by cdqa:", prediction)
+        print("Prediction value", prediction[0])
         if key not in predictions.keys():
             predictions[key] = [prediction[0]]
         else:
             predictions[key].append(prediction[0])
 
-    # return final_predictions
+    return predictions
 
 
 if __name__ == '__main__':
-    main("sample_8.json")
-
+    # main("sample_8.json")
+    main()
 
 
 

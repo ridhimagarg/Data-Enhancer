@@ -1,11 +1,17 @@
 {
+    "name": [
+        "Infosys"
+    ],
     "domain": [
-        "NASDAQ"
+        "next-generation digital services and consulting"
     ],
     "founded": [
-        "July 14 , 2006"
+        "1981"
     ],
     "employee": [
+        "229,000"
+    ],
+    "developer": [
         "228,000"
     ],
     "state": [
@@ -14,36 +20,44 @@
     "countries": [
         "46"
     ],
+    "reviews": [
+        "228,000"
+    ],
     "address": [
-        "India"
+        "China Co ."
+    ],
+    "revenue": [
+        "US $ 11.8 billion"
     ],
     "capitalization": [
         "$ 23,000,000"
     ],
     "clients": [
-        "46"
+        "228,000"
+    ],
+    "margin": [
+        "$ 13,000,000"
     ],
     "ceo": [
-        "Inderpreet"
+        "Salil Parekh"
     ],
     "cfo": [
-        "Inderpreet"
+        "Salil Parekh"
     ],
     "cmo": [
-        "Sumit Virmani"
+        "Salil Parekh"
+    ],
+    "coo": [
+        "Salil Parekh"
     ],
     "founder": [
-        "NYSE INFY"
+        "Salil Parekh"
     ],
-    "name": [
-        "Infosys"
+    "co-founder": [
+        "Salil Parekh"
     ],
-    "developer": null,
-    "reviews": null,
-    "revenue": null,
-    "margin": null,
-    "liability": null,
-    "coo": null,
-    "co-founder": null,
-    "products-services": null
+    "products-services": [
+        "next-generation digital services and consulting"
+    ],
+    "liability": null
 }

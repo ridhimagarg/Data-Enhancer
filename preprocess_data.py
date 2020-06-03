@@ -6,6 +6,11 @@ from nltk.tokenize import word_tokenize
 # from create_corpus import append_new_line
 import spacy
 import pandas as pd
+
+
+from utils.basic_utils import *
+
+
 model = "en_core_web_sm"
 nlp = spacy.load(model)
 nlp.max_length = 20000000 
@@ -65,6 +70,7 @@ def remove_html_tags(TextData:str) -> str:
     return clean_text
 
 def remove_image_tags(TextData:str) -> str:
+    
     """
     Remove the image tags from the `TextData`
     """
@@ -109,7 +115,7 @@ def clean_merged_text(TextData: str) -> str:
 def refine_text(TextData: str) -> str:
     text = TextData.encode('ascii',errors = "ignore")
     text = TextData.replace('$',' $')
-    symbols = '!#?:^*()_+=~|'
+    symbols = '!#?:^*()_+=~|{};'
     for symbol in symbols:
         text = text.replace(symbol, '')
     
@@ -197,13 +203,17 @@ def get_processed_data(TextData: str) -> list:
 
 def get_excel(InputJsonPath: str, ExpectedJsonFilePath: str) -> dict: 
     json_ = read_json_file(InputJsonPath)
-    title = json_['string']
-    text = json_['text']
-    ListOfSentences = get_processed_data(text)
+    title = json_['company_name']
     print(title)
     dataframe = pd.DataFrame(columns=['title', 'paragraphs'])
-    dataframe = dataframe.append({'title':title, 'paragraphs': ListOfSentences}, ignore_index=True)
-    print(dataframe)
+    for pages in json_.keys():
+        if 'page' in pages:
+            text = json_[pages]
+            # print(text)
+            ListOfSentences = get_processed_data(text)
+            print(ListOfSentences)
+            dataframe = dataframe.append({'title':title, 'paragraphs': ListOfSentences}, ignore_index=True)
+            print(dataframe)
     dataframe.to_excel(ExpectedJsonFilePath, sheet_name='Sheet1', index=False)
     # data = {}
     # data['title'] = title
